@@ -1,0 +1,17 @@
+{% block append %}
+    <turbo-stream action="append" target="todo-list">
+        <template>
+            {{ include('todo/_todo.html.twig', { todo: todo }) }}
+        </template>
+    </turbo-stream>
+    <turbo-stream action="replace" targets="form[name=todo]">
+        <template>
+            {{ include('todo/_form.html.twig', { form: form }) }}
+        </template>
+    </turbo-stream>
+{% endblock %}
+
+{% block remove %}
+    <turbo-stream action="remove" target="todo_{{ id }}"></turbo-stream>
+{% endblock %}
+
